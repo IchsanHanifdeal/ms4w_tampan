@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Sistem Informasi Geografis | Sarmida Sihombing</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQqCVzh9CHvZAJrfAoR-mVZD-dZxap2Xo&callback=initGoogleMap" async defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6C5F5B">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sistem Informasi Geografis 2</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="map-container">
+        <h1 class="map-title">Menampilkan SHP Menggunakan MS4W dan Google Maps</h1>
+        <div id="google-map" style="height: 800px"></div>
+    </div>
+    <footer class="text-center text-white" style="background-color: #6C5F5B">
+        <div class="text-center p-3" style="background-color: #6C5F5B">
+            &copy; Sarmida Sihombing
+        </div>
+    </footer>
+    <script>
+        var googleMap;
+
+        function initGoogleMap() {
+            googleMap = new google.maps.Map(document.getElementById("google-map"), {
+                center: { lat: 0.537488, lng: 101.448387 },
+                zoom: 10,
+            });
+        
+            var geoJsonLayers = [
+                {
+                    name: 'Bank',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Bank.geojson"
+                },
+                {
+                    name: 'Pasar',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Pasar.geojson"
+                },
+                {
+                    name: 'KUD',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/KUD.geojson"
+                },
+                {
+                    name: 'Hotel Melati',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Hotel_Melati.geojson"
+                },
+                {
+                    name: 'Hotel Berbintang',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Hotel_Berbintang.geojson"
+                },
+                {
+                    name: 'Kolam Renang',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Kolam_Renang.geojson"
+                },
+                {
+                    name: 'Bola Voley',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Bola_Voley.geojson"
+                },
+                {
+                    name: 'Bulu Tangkis',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Bulu_Tangkis.geojson"
+                },
+                {
+                    name: 'Futsal',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Futsal.geojson"
+                },
+                {
+                    name: 'Renang',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Renang.geojson"
+                },
+                {
+                    name: 'Sepak Bola',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Sepak_Bola.geojson"
+                },
+                {
+                    name: 'Pos KB',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Pos_KB.geojson"
+                },
+                {
+                    name: 'Praktik Dokter',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Praktik_Dokter.geojson"
+                },
+                {
+                    name: 'RS Bersalin',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/RS_Bersalin.geojson"
+                },
+                {
+                    name: 'Poliklinik',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Poliklinik.geojson"
+                },
+                {
+                    name: 'Puskesmas P',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Puskesmas_P.geojson"
+                },
+                {
+                    name: 'Puskesmas',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Puskesmas.geojson"
+                },
+                {
+                    name: 'Vihara',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Vihara.geojson"
+                },
+                {
+                    name: 'Gereja',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Gereja.geojson"
+                },
+                {
+                    name: 'Masjid',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Masjid.geojson"
+                },
+                {
+                    name: 'Surau',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Surau.geojson"
+                },
+                {
+                    name: 'Wilayah',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Wilayah.geojson"
+                },
+                {
+                    name: 'Sekolah Swasta',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Sekolah_Swasta.geojson"
+                },
+                {
+                    name: 'Sekolah Negeri',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Sekolah_Negeri.geojson"
+                },
+                {
+                    name: 'Kantor Lurah',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Kantor_Lurah.geojson"
+                },
+                {
+                    name: 'Sungai',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Sungai.geojson"
+                },
+                {
+                    name: 'Jalan Lingkungan',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Jalan_Lingkungan.geojson"
+                },
+                {
+                    name: 'Jalan Arteri',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Jalan_Arteri.geojson"
+                },
+                {
+                    name: 'Jalan Kolektor',
+                    url: "http://localhost:81/uts_SarmidaSihombing/assets/geojson/Jalan_Kolektor.geojson"
+                }
+            ];
+        
+            geoJsonLayers.forEach(function (layer) {
+                var layerName = layer.name;
+                var layerUrl = layer.url;
+        
+                var dataLayer = new google.maps.Data({ map: googleMap });
+                dataLayer.loadGeoJson(layerUrl);
+                dataLayer.setStyle({ title: layerName });
+            });
+        }
+        
+    </script>    
+</body>
+</html>

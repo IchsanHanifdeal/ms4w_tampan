@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "Futsal",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "Point", "coordinates": [ 101.37574387243329, 0.492280277745577 ] } },
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "Point", "coordinates": [ 101.413197183530315, 0.455370911434497 ] } },
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "Point", "coordinates": [ 101.375658806702333, 0.460052500963472 ] } },
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "Point", "coordinates": [ 101.380132193393294, 0.457244736976592 ] } }
+]
+}

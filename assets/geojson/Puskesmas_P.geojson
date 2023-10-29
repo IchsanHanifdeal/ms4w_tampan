@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Puskesmas P",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "Point", "coordinates": [ 101.365912541633989, 0.472952379467164 ] } },
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "Point", "coordinates": [ 101.410081097555093, 0.472366959215865 ] } }
+]
+}
